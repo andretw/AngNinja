@@ -1,0 +1,15 @@
+	<h2>Example</h2>
+	<select ng-model="num" ng-init="num=2" class="form-control">
+	<option>1</option>
+	<option>2</option>
+	</select>
+
+	<h2>Source</h2>
+
+	<h2>Answer</h2>
+	<form ng-submit="checkAnswer()" role="form">
+		<div class="form-group">
+			<input type="text" ng-model="yourAnswer" placeholder="Enter your answer here" class="form-control">
+		</div>
+		<input type="submit" value="check">
+	</form>

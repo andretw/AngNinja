@@ -1,24 +1,16 @@
-<!DOCTYPE html>
-<html ng-app>
+<!doctype html>
+<html ng-app="angNinja">
 <head>
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.6.0/ui-bootstrap-tpls.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.6.0/ui-bootstrap.js"></script>
-<link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
-<link rel="stylesheet" type="text/css" href="./angninja.css">
-<script>
-function MyCtrl($scope) {
-	$scope.checkAnswer = function() {
-		if($scope.yourAnswer == 'num'){
-			alert('Correct!');
-		}else{
-			alert('Wrong!');
-		}
-	};
-}
-</script>
-<meta charset=utf-8 />
-<title>AngNinja Sweet HOME</title>
+	<meta charset=utf-8 />
+	<title>AngNinja Sweet HOME</title>
+    <script src="http://code.angularjs.org/1.2.0-rc.2/angular.min.js"></script>
+    <script src="http://code.angularjs.org/1.2.0-rc.2/angular-animate.min.js"></script>
+    <script src="http://code.angularjs.org/1.2.0-rc.2/angular-route.min.js"></script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.6.0/ui-bootstrap-tpls.js"></script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.6.0/ui-bootstrap.js"></script>
+	<script src="./angninja.js"></script>
+	<link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="./angninja.css">
 </head>
 <body>
 
@@ -59,59 +51,10 @@ function MyCtrl($scope) {
 </div>
 
 
-<div ng-controller="MyCtrl" class="container bs-docs-container">
-	<table class="table">
-		<thead>
-          <tr>
-            <th style="width: 5%">#</th>
-            <th>Basic</th>
-          </tr>
-        </thead>
-		<tr>
-			<td>0001</td>
-			<td><a href="./basic/Test_0001.html">Getting Variable</a></td>	
-		</tr>
-		<tr>
-			<td>0002</td>
-			<td><a href="./basic/Test_0002.html">Escape Braces {}</a></td>
-		</tr>
-	</table>
-
-	<table class="table">
-		<thead>
-          <tr>
-            <th style="width: 5%">#</th>
-            <th>Advanced</th>
-          </tr>
-        </thead>
-		<tr>
-			<td>1001</td>
-			<td>TBD</td>
-			
-		</tr>
-		<tr>
-			<td>1002</td>
-			<td>TBD</td>
-		</tr>
-	</table>
-
-	<table class="table">
-		<thead>
-          <tr>
-            <th style="width: 5%">#</th>
-            <th>Ninja</th>
-          </tr>
-        </thead>
-		<tr>
-			<td>2001</td>
-			<td>TBD</td>
-			
-		</tr>
-		<tr>
-			<td>2002</td>
-			<td>TBD</td>
-		</tr>
-	</table>
+<div ng-controller="MainCntl as main" class="container bs-docs-container">
+      <div class="view-animate-container">
+        <div ng-view class="view-animate"></div>
+      </div>
 </div>
 </body>
 </html>

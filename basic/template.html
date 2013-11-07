@@ -1,0 +1,19 @@
+<div>
+	<h2>Example</h2>
+	<div ng-bind-html-unsafe="basic.info.example"></div>
+
+	<h2>Source</h2>
+	<pre class="span10">&lt;select ng-model="num" ng-init="num=2" class="form-control"&gt;
+&lt;option&gt;1&lt;/option&gt;&nbsp;
+&lt;option&gt;2&lt;/option&gt;&nbsp;
+&lt;/select&gt;&nbsp;
+&lt;div *HERE*&gt;<span ng-non-bindable>You are No.{{ num }}</span>&lt;/div&gt;</pre>
+
+	<h2>Answer</h2>
+	<form ng-submit="checkAnswer()" role="form">
+		<div class="form-group">
+			<input type="text" ng-model="yourAnswer" placeholder="Enter your answer here" class="form-control">
+		</div>
+		<input type="submit" value="check">
+	</form>
+</div>

@@ -5,11 +5,11 @@
 <script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.6.0/ui-bootstrap-tpls.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.6.0/ui-bootstrap.js"></script>
 <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
-<link rel="stylesheet" type="text/css" href="./angninja.css">
+<link rel="stylesheet" type="text/css" href="../angninja.css">
 <script>
 function MyCtrl($scope) {
 	$scope.checkAnswer = function() {
-		if($scope.yourAnswer == 'num'){
+		if($scope.yourAnswer == 'ng-non-bindable'){
 			alert('Correct!');
 		}else{
 			alert('Wrong!');
@@ -18,7 +18,7 @@ function MyCtrl($scope) {
 }
 </script>
 <meta charset=utf-8 />
-<title>AngNinja Sweet HOME</title>
+<title>AngNinja Test 0002</title>
 </head>
 <body>
 
@@ -33,17 +33,17 @@ function MyCtrl($scope) {
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a href="./index.html" class="navbar-brand">AngNinja</a>
+      <a href="../index.html" class="navbar-brand">AngNinja</a>
     </div>
     <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
       <ul class="nav navbar-nav">
         <li>
-          <a href="./getting-started.html">Getting started</a>
+          <a href="../getting-started.html">Getting started</a>
         </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li>
-          <a href="./about.html">About</a>
+          <a href="../about.html">About</a>
         </li>
       </ul>
     </nav>
@@ -53,65 +53,34 @@ function MyCtrl($scope) {
 
 <div class="bs-header" id="content">
 	<div class="container">
-	<h1>Your First Journey with AngularJS</h1>
-	<p>select your challenge(s) now</p>
+	<h1>Basic Lesson: Escape Braces {}</h1>
+	<p>Type the missing part *HERE* if you want to escape the braces in your code.</p>
 	</div>
 </div>
 
 
 <div ng-controller="MyCtrl" class="container bs-docs-container">
-	<table class="table">
-		<thead>
-          <tr>
-            <th style="width: 5%">#</th>
-            <th>Basic</th>
-          </tr>
-        </thead>
-		<tr>
-			<td>0001</td>
-			<td><a href="./basic/Test_0001.html">Getting Variable</a></td>	
-		</tr>
-		<tr>
-			<td>0002</td>
-			<td><a href="./basic/Test_0002.html">Escape Braces {}</a></td>
-		</tr>
-	</table>
+	<h2>Example</h2>
+	<select ng-model="num" ng-init="num=2" class="form-control">
+	<option>1</option>
+	<option>2</option>
+	</select>
+	<div>You are No.{{num}}</div>
 
-	<table class="table">
-		<thead>
-          <tr>
-            <th style="width: 5%">#</th>
-            <th>Advanced</th>
-          </tr>
-        </thead>
-		<tr>
-			<td>1001</td>
-			<td>TBD</td>
-			
-		</tr>
-		<tr>
-			<td>1002</td>
-			<td>TBD</td>
-		</tr>
-	</table>
+	<h2>Source</h2>
+	<pre class="span10">&lt;select ng-model="num" ng-init="num=2" class="form-control"&gt;
+&lt;option&gt;1&lt;/option&gt;&nbsp;
+&lt;option&gt;2&lt;/option&gt;&nbsp;
+&lt;/select&gt;&nbsp;
+&lt;div *HERE*&gt;<span ng-non-bindable>You are No.{{ num }}</span>&lt;/div&gt;</pre>
 
-	<table class="table">
-		<thead>
-          <tr>
-            <th style="width: 5%">#</th>
-            <th>Ninja</th>
-          </tr>
-        </thead>
-		<tr>
-			<td>2001</td>
-			<td>TBD</td>
-			
-		</tr>
-		<tr>
-			<td>2002</td>
-			<td>TBD</td>
-		</tr>
-	</table>
+	<h2>Answer</h2>
+	<form ng-submit="checkAnswer()" role="form">
+		<div class="form-group">
+			<input type="text" ng-model="yourAnswer" placeholder="Enter your answer here" class="form-control">
+		</div>
+		<input type="submit" value="check">
+	</form>
 </div>
 </body>
 </html>

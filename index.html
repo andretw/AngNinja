@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html ng-app>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.6.0/ui-bootstrap-tpls.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.6.0/ui-bootstrap.js"></script>
+<link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="./angninja.css">
+<script>
+function MyCtrl($scope) {
+	$scope.checkAnswer = function() {
+		if($scope.yourAnswer == 'num'){
+			alert('Correct!');
+		}else{
+			alert('Wrong!');
+		}
+	};
+}
+</script>
+<meta charset=utf-8 />
+<title>AngNinja Sweet HOME</title>
+</head>
+<body>
+
+<a class="sr-only" href="#content">Skip to main content</a>
+
+<header class="navbar navbar-inverse navbar-fixed-top bs-docs-nav" role="banner">
+  <div class="container">
+    <div class="navbar-header">
+      <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a href="../" class="navbar-brand">AngNinja</a>
+    </div>
+    <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
+      <ul class="nav navbar-nav">
+        <li>
+          <a href="../getting-started">Getting started</a>
+        </li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+          <a href="../about">About</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+
+<div class="bs-header" id="content">
+	<div class="container">
+	<h1>Your First Journey with AngularJS</h1>
+	<p>select your challenge(s) now</p>
+	</div>
+</div>
+
+
+<div ng-controller="MyCtrl" class="container bs-docs-container">
+	<table class="table">
+		<thead>
+          <tr>
+            <th style="width: 5%">#</th>
+            <th>Basic</th>
+          </tr>
+        </thead>
+		<tr>
+			<td>001</td>
+			<td><a href="./Test_0001.html">Getting Variable</a></td>
+			
+		</tr>
+		<tr>
+			<td>002</td>
+			<td>TBD</td>
+		</tr>
+	</table>
+
+	<table class="table">
+		<thead>
+          <tr>
+            <th style="width: 5%">#</th>
+            <th>Advanced</th>
+          </tr>
+        </thead>
+		<tr>
+			<td>001</td>
+			<td>TBD</td>
+			
+		</tr>
+		<tr>
+			<td>002</td>
+			<td>TBD</td>
+		</tr>
+	</table>
+
+	<table class="table">
+		<thead>
+          <tr>
+            <th style="width: 5%">#</th>
+            <th>Ninja</th>
+          </tr>
+        </thead>
+		<tr>
+			<td>001</td>
+			<td>TBD</td>
+			
+		</tr>
+		<tr>
+			<td>002</td>
+			<td>TBD</td>
+		</tr>
+	</table>
+</div>
+</body>
+</html>

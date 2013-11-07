@@ -4,6 +4,8 @@
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.6.0/ui-bootstrap-tpls.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.6.0/ui-bootstrap.js"></script>
+<link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="./angninja.css">
 <script>
 function MyCtrl($scope) {
 	$scope.checkAnswer = function() {
@@ -19,19 +21,64 @@ function MyCtrl($scope) {
 <title>AngularJS Simple Test 001</title>
 </head>
 <body>
-<div ng-controller="MyCtrl">
-	<p>Type the missing part { { HERE } } if you want to print the value of current selection.</p>
-	<select ng-model="num" ng-init="num=2">
+
+<a class="sr-only" href="#content">Skip to main content</a>
+
+<header class="navbar navbar-inverse navbar-fixed-top bs-docs-nav" role="banner">
+  <div class="container">
+    <div class="navbar-header">
+      <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a href="../" class="navbar-brand">AngNinja</a>
+    </div>
+    <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
+      <ul class="nav navbar-nav">
+        <li>
+          <a href="../getting-started">Getting started</a>
+        </li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+          <a href="../about">About</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+
+<div class="bs-header" id="content">
+	<div class="container">
+	<h1>Basic Lesson: Getting Variable</h1>
+	<p>Type the missing part *HERE* if you want to print the value of current selection.</p>
+	</div>
+</div>
+
+
+<div ng-controller="MyCtrl" class="container bs-docs-container">
+	<h2>Example</h2>
+	<select ng-model="num" ng-init="num=2" class="form-control">
 	<option>1</option>
 	<option>2</option>
 	</select>
-		<div>&lt;select ng-model="num" ng-init="num=2"&gt;</div>
-		<div>&lt;option&gt;1&lt;/option&gt;&nbsp;</div>
-		<div>&lt;option&gt;2&lt;/option&gt;&nbsp;</div>
-		<div>&lt;/select&gt;&nbsp;</div>
-		<div>{ { HERE } }</div>
-	<form ng-submit="checkAnswer()">
-		Answer: <input type="text" ng-model="yourAnswer" placeholder="Enter your answer here"><input type="submit" value="check">
+	<div>You got No.{{num}}</div>
+
+	<h2>Source</h2>
+	<pre class="span10">&lt;select ng-model="num" ng-init="num=2" class="form-control"&gt;
+&lt;option&gt;1&lt;/option&gt;&nbsp;
+&lt;option&gt;2&lt;/option&gt;&nbsp;
+&lt;/select&gt;&nbsp;<div ng-non-bindable>You are No.{{ *HERE* }}</div></pre>
+
+	<h2>Answer</h2>
+	<form ng-submit="checkAnswer()" role="form">
+		<div class="form-group">
+			<input type="text" ng-model="yourAnswer" placeholder="Enter your answer here" class="form-control">
+		</div>
+		<input type="submit" value="check">
 	</form>
 </div>
 </body>

@@ -30,6 +30,7 @@ function MainCntl($route, $rootScope, $routeParams, $location) {
     this.$route = $route;
     this.$location = $location;
     this.$routeParams = $routeParams;
+    this.mBasicLesson = basicDB;
 
     $rootScope.$emit('titleChanged', {
         mTitle : 'Your First Journey with AngularJS',
@@ -39,8 +40,6 @@ function MainCntl($route, $rootScope, $routeParams, $location) {
 
 function TitleCntl($scope, $rootScope, $route, $routeParams, $location) {
     $rootScope.$on('titleChanged', function(event, data){
-        console.log(data);
-
         if($location.path() == '/index.html'){
             $rootScope.mTitle = 'Your First Journey with AngularJS';
             $rootScope.mSubTitle = 'select your challenge(s) now';
@@ -53,7 +52,7 @@ function TitleCntl($scope, $rootScope, $route, $routeParams, $location) {
  
 function BasicCntl($scope, $rootScope, $routeParams) {
     var anId = $routeParams.anId;
-    this.info = db[anId];
+    this.info = basicDB[anId];
     var answer = this.info.answer;
     
     console.log("Getting anId: ", anId, this.info);
@@ -72,7 +71,7 @@ function BasicCntl($scope, $rootScope, $routeParams) {
     };
 }
 
-db = {"0001": 
+basicDB = {"0001": 
             {
                 "mTitle": "Basic Lesson: Getting Variable", 
                 "mSubTitle": "Type the missing part *HERE* if you want to print the value of current selection.",
@@ -92,7 +91,26 @@ db = {"0001":
 &lt;option&gt;1&lt;/option&gt;&nbsp;<br />\
 &lt;option&gt;2&lt;/option&gt;&nbsp;<br />\
 &lt;/select&gt;&nbsp;<br />\
-&lt;div *HERE*&gt;You are No.{{ num }}&lt;/div&gt;',
+&lt;div *HERE*&gt;You are No.{{num}}&lt;/div&gt;',
+                "answer": "ng-non-bindable"
+             },
+      "0003":             
+            {
+                "mTitle": "Basic Lesson: Bind With Data", 
+                "mSubTitle": "Type the missing part *HERE* if you want to escape the braces in your code.",
+                "example": '<ul><li ng-repeat="phone in phones">{{phone.name}}<p>{{phone.snippet}}</p></li></ul><script>app.controller("BasicCntl", function BasicCntl($scope) {\
+  $scope.phones = [\
+    {"name": "Nexus S",\
+     "snippet": "Fast just got faster with Nexus S."},\
+    {"name": "Motorola XOOM™ with Wi-Fi",\
+     "snippet": "The Next, Next Generation tablet."}\
+  ];\
+});</script>',
+                "source": '&lt;select ng-model="num" ng-init="num=2" class="form-control"&gt;<br />\
+&lt;option&gt;1&lt;/option&gt;&nbsp;<br />\
+&lt;option&gt;2&lt;/option&gt;&nbsp;<br />\
+&lt;/select&gt;&nbsp;<br />\
+&lt;div *HERE*&gt;You are No.{{num}}&lt;/div&gt;',
                 "answer": "ng-non-bindable"
              }
       }

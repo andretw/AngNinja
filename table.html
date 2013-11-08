@@ -6,13 +6,9 @@
             <th>Basic</th>
           </tr>
         </thead>
-		<tr>
-			<td>0001</td>
-			<td><a href="./basic/0001">Getting Variable</a></td>	
-		</tr>
-		<tr>
-			<td>0002</td>
-			<td><a href="./basic/0002">Escape Braces {}</a></td>
+		<tr ng-repeat="(id, lesson) in main.mBasicLesson">
+			<td>{{id}}</td>
+			<td><a href="./basic/0001">{{lesson.mTitle}}</a></td>	
 		</tr>
 	</table>
 

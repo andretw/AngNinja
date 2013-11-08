@@ -4,7 +4,7 @@ var app = angular.module('angNinja', ["ngRoute", "ngAnimate", "ngSanitize", "ui.
             templateUrl: 'table.html',
             controller: MainCntl,
         }).when('/basic/:anId', {
-            templateUrl: 'template.html',
+            templateUrl: 'basic/template.html',
             controller: BasicCntl,
             controllerAs: 'basic'
         }).otherwise({ redirectTo: '/index.html' });

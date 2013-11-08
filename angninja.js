@@ -1,4 +1,4 @@
-angular.module('angNinja', ["ngRoute", "ngAnimate", "ngSanitize", "ui.bootstrap"],
+var app = angular.module('angNinja', ["ngRoute", "ngAnimate", "ngSanitize", "ui.bootstrap"],
     function($routeProvider, $locationProvider) {
         $routeProvider.when('/index.html', {
             templateUrl: 'table.html',
@@ -13,6 +13,19 @@ angular.module('angNinja', ["ngRoute", "ngAnimate", "ngSanitize", "ui.bootstrap"
         $locationProvider.html5Mode(true);
     }
 );
+
+app.directive('dynamic', function ($compile) {
+    return {
+        restrict: 'A',
+        replace: true,
+        link: function (scope, ele, attrs) {
+                  scope.$watch(attrs.dynamic, function(html) {
+                  ele.html(html);
+                  $compile(ele.contents())(scope);
+                  });
+              }
+    };
+});
  
 function MainCntl($route, $rootScope, $routeParams, $location) {
     this.$route = $route;
@@ -39,15 +52,12 @@ function TitleCntl($scope, $rootScope, $route, $routeParams, $location) {
     });
 }
  
-function BasicCntl($scope, $rootScope, $routeParams, $sce) {
-
+function BasicCntl($scope, $rootScope, $routeParams) {
     var anId = $routeParams.anId;
     this.info = db[anId];
-    var ex = this.info.example;
     var answer = this.info.answer;
-
+    
     console.log("Getting anId: ", anId, this.info);
-    this.example = $sce.trustAsHtml(ex);
 
     $rootScope.$emit('titleChanged', {
         mTitle: this.info.mTitle,
@@ -78,7 +88,7 @@ db = {"0001":
             {
                 "mTitle": "Basic Lesson: Escape Braces {}", 
                 "mSubTitle": "Type the missing part *HERE* if you want to escape the braces in your code.",
-                "example": '<select ng-model="num" ng-init="num=2" class="form-control"><option>1</option><option>2</option></select><div>You are No.{{num}}</div>',
+                "example": '<select ng-model="num" ng-init="num=2" class="form-control"><option>1</option><option>2</option></select><div ng-non-bindable>You are No.{{num}}</div>',
                 "source": '&lt;select ng-model="num" ng-init="num=2" class="form-control"&gt;<br />\
 &lt;option&gt;1&lt;/option&gt;&nbsp;<br />\
 &lt;option&gt;2&lt;/option&gt;&nbsp;<br />\

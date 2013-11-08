@@ -3,12 +3,11 @@ var app = angular.module('angNinja', ["ngRoute", "ngAnimate", "ngSanitize", "ui.
         $routeProvider.when('/index.html', {
             templateUrl: 'table.html',
             controller: MainCntl,
-        });
-        $routeProvider.when('/basic/:anId', {
+        }).when('/basic/:anId', {
             templateUrl: 'template.html',
             controller: BasicCntl,
             controllerAs: 'basic'
-        });
+        }).otherwise({ redirectTo: '/index.html' });
 
         $locationProvider.html5Mode(true);
     }

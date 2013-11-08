@@ -1,13 +1,9 @@
 <div>
 	<h2>Example</h2>
-	<div ng-bind-html-unsafe="basic.info.example"></div>
+	<div ng-bind-html="basic.example"></div>
 
 	<h2>Source</h2>
-	<pre class="span10">&lt;select ng-model="num" ng-init="num=2" class="form-control"&gt;
-&lt;option&gt;1&lt;/option&gt;&nbsp;
-&lt;option&gt;2&lt;/option&gt;&nbsp;
-&lt;/select&gt;&nbsp;
-&lt;div *HERE*&gt;<span ng-non-bindable>You are No.{{ num }}</span>&lt;/div&gt;</pre>
+	<pre ng-bind-html="basic.info.source" class="span10"></pre>
 
 	<h2>Answer</h2>
 	<form ng-submit="checkAnswer()" role="form">

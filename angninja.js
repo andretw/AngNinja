@@ -97,8 +97,8 @@ basicDB = {"0001":
       "0003":             
             {
                 "mTitle": "Basic Lesson: Bind With Data", 
-                "mSubTitle": "Type the missing part *HERE* if you want to escape the braces in your code.",
-                "example": '',
+                "mSubTitle": "Type the missing part *HERE* if you want to bind the data with elements.",
+                "example": '<script>app.controller("ExampleCntl", function ExampleCntl($scope) { $scope.phones = [{"name": "Nexus S", "snippet": "Fast just got faster with Nexus S."}, {"name": "Motorola XOOM™ with Wi-Fi", "snippet": "The Next, Next Generation tablet."} ]; });</script><ul><li ng-repeat="phone in phones">{{phone.name}}<p>{{phone.snippet}}</p></li></ul>',
                 "source": '&lt;select ng-model="num" ng-init="num=2" class="form-control"&gt;<br />\
 &lt;option&gt;1&lt;/option&gt;&nbsp;<br />\
 &lt;option&gt;2&lt;/option&gt;&nbsp;<br />\
